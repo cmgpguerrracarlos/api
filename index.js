@@ -1,13 +1,6 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
-const data = [];
-const con = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"",
-    database:"api"
-});
 
 app.use('/api',(req,res)=>{
     const con = mysql.createConnection({
@@ -30,7 +23,7 @@ app.use('/api',(req,res)=>{
 });
 
 app.use('/',(req,res)=>{
-    res.send("Welcome");
+    res.send("Welcome <a href='/api'>API</a>");
 });
 app.listen(9000,()=>{
     console.log("Runnin on port 9000");
